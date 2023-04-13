@@ -1,0 +1,74 @@
+*. *::after, *::before{
+    box-sizing: border-box; /* Makes sizing the height and width easier */
+}
+
+:root {
+    --hue: 200;
+    --saturation: 50%;
+    --foreground-color: hsl(var(--hue), var(--saturation), 75%);
+    --background-color: hsl(var(--hue), var(--saturation), 20%);
+}
+
+body {
+    margin: 0;
+    background-color: var(--background-color);
+}
+
+.paddle {
+
+    --position: 50; /* can use in JavaScript code */
+    position: absolute;
+    background-color: var(--foreground-color);
+    top: calc(var(--position) * 1vh); /* the original top: 50vh; */
+    transform: translateY(-50%); /* this places the center half way on the scren */
+    width: 1vh; /* vw doesnt always look good on all screen sizes*/
+    height: 10vh; /* this is good to use because
+    no matter what size of the screen it is it will always 
+    be 10% of the height*/
+}
+
+.padde.left {
+    left: 1vw; /* 1% away from the screen on the left side*/
+}
+
+.paddle.right {
+    right: 1vw; 
+}
+
+.ball {
+
+    --x: 50;
+    --y: 50;
+
+    position: absolute;
+    background-color: var(--foreground-color);
+    left: calc(var(--x) * 1vw); /* notice this is using vw instead of vh for the left */
+    top: calc(var(--y) * 1vh); 
+    transform: translate(-50%, -50%); /* got rid of the Y and added -50 to the y as well to center it */
+    border-radius: 50%; /* changes it to a circle instead of a square */
+    width: 2.5vh; /* 2.5 gives it the shape */
+    height: 2.5vh;
+}
+
+.score {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 7vh;
+    color: var(--foreground-color);
+}
+
+.score > * { /* selects all the direct children */
+    /*=== the flex grow and flex basis makes sure each sides shows a score */
+    flex-grow: 1; 
+    flex-basis: 0;
+    padding: 0 2vh; 
+    margin: 1vh 0;
+    opacity: 0.5;
+}
+
+.score > :first-child {
+    text-align: right; /* no matter how high the number gets it will always stay on the left side of the screen 
+    but the number is placed on the right*/
+    border-right: .5vh solid var(--foreground-color); /* supper cool never used border-right before */
+}
