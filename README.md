@@ -1,4 +1,4 @@
-# Ping-Pong Game
+# Ping-Pong Game 🏓
 
 This is a simple Ping-Pong game built with HTML, CSS, and JavaScript. The game features a ball that bounces between two paddles, one controlled by the player and one controlled by the computer. The objective is to score points by hitting the ball past the opponent's paddle.
 
